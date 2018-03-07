@@ -1,4 +1,4 @@
-#JefferPeng, Yifan Zhang
+#JefferPeng
 #May.23rd, 2016
 #Mr.Cope
 #ICS Summative Game File.txt
