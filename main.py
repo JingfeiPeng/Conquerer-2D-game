@@ -29,10 +29,10 @@ def textScreen(msg,colour,x,y,size):
 
 #Make a function to move the Alien character
 def MovingAlien(x,y):
-    AlienStand1=pygame.image.load("AlienStand.png") #load the images of character
-    AlienStand2=pygame.image.load("AlienStand2.png")
-    AlienStand3=pygame.image.load("AlienStand3.png")
-    AlienStand4=pygame.image.load("AlienStand4.png") 
+    AlienStand1=pygame.image.load("assets/images/AlienStand.png") #load the images of character
+    AlienStand2=pygame.image.load("assets/images/AlienStand2.png")
+    AlienStand3=pygame.image.load("assets/images/AlienStand3.png")
+    AlienStand4=pygame.image.load("assets/images/AlienStand4.png") 
     MoveA=[AlienStand1,AlienStand2,AlienStand3,AlienStand4]
     
     for pic in MoveA:
@@ -78,7 +78,7 @@ class MainPlayer:
         self.y_change = 0
         
         self.tier = tier
-        self.image = pygame.image.load("AlienStand.png").convert_alpha() #load the image of the character
+        self.image = pygame.image.load("assets/images/AlienStand.png").convert_alpha() #load the image of the character
         self.image=pygame.transform.scale(self.image,(self.imageX,self.imageY))   #change the scale of image
         self.rect=self.image.get_rect()
         
@@ -131,7 +131,7 @@ class MainPlayer:
             self.image = pygame.transform.scale(self.image, (self.imageX , self.imageY))
             
         elif self.direction  ==  "down": #changes picture when move down
-            self.image = pygame.image.load("AlienStand.png")
+            self.image = pygame.image.load("assets/images/AlienStand.png")
             self.image = pygame.transform.scale(self.image, (self.imageX , self.imageY)) 
             
 
