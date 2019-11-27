@@ -43,7 +43,7 @@ def MovingAlien(x,y):
 class MainPlayer:
     def __init__(self, health, attack, mobility):
         #a sound file for shooting bullets
-        self.shoot = pygame.mixer.Sound(file="CoolGunShoot.wav")
+        self.shoot = pygame.mixer.Sound(file="assets/sounds/CoolGunShoot.wav")
         self.direction = None #preset a variable to show the bullet/character's direction
         
         #a list for bullets
@@ -116,17 +116,17 @@ class MainPlayer:
 
         #changes the main character's picture when it moves left
         if self.direction  ==  "left":
-            self.image = pygame.image.load("CharacterLeft.png")
+            self.image = pygame.image.load("assets/images/CharacterLeft.png")
 
             self.image = pygame.transform.scale(self.image, (self.imageX , self.imageY)) 
             
         elif self.direction  ==  "right": #changes picture when move right
-            self.image = pygame.image.load("CharacterRight.png")
+            self.image = pygame.image.load("assets/images/CharacterRight.png")
 
             self.image = pygame.transform.scale(self.image, (self.imageX , self.imageY))
             
         elif self.direction  ==  "up": #changes picture when move Back
-            self.image = pygame.image.load("CharacterBack.png")
+            self.image = pygame.image.load("assets/images/CharacterBack.png")
 
             self.image = pygame.transform.scale(self.image, (self.imageX , self.imageY))
             
@@ -213,7 +213,7 @@ class MainPlayer:
 #a class to define enemies
 class Enemy:
     def __init__(self, tier):
-        self.shoot = pygame.mixer.Sound(file="GunShoot.wav")
+        self.shoot = pygame.mixer.Sound(file="assets/sounds/GunShoot.wav")
         
         self.counter = 0
         self.shootList = []
@@ -237,7 +237,7 @@ class Enemy:
             self.mobility =3
             self.attackspeed = 10
             self.bulletSpeed = 15
-            self.image = pygame.image.load("SoldierTier2Front.png")
+            self.image = pygame.image.load("assets/images/SoldierTier2Front.png")
             self.image=pygame.transform.scale(self.image, (self.imageSizeX,self.imageSizeY))
 
         elif self.tier == 2:
@@ -248,7 +248,7 @@ class Enemy:
             self.mobility =1
             self.attackspeed =30
             self.bulletSpeed = 10
-            self.image = pygame.image.load("TankLeft.png")
+            self.image = pygame.image.load("assets/images/TankLeft.png")
             self.image=pygame.transform.scale(self.image, (self.imageSizeX,self.imageSizeY))
             
         else:
@@ -294,11 +294,11 @@ class Enemy:
         if self.direction == "left": # change the picture of the enemy according to its direction of movement
             
             if self.tier ==1:
-                self.image = pygame.image.load("SoldierTier2Left.png")
+                self.image = pygame.image.load("assets/images/SoldierTier2Left.png")
                 self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
 
             elif self.tier == 2:
-                self.image = pygame.image.load("TankLeft.png")
+                self.image = pygame.image.load("assets/images/TankLeft.png")
                 self.imageSizeX = 100
                 self.imageSizeY= 120
                 self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
@@ -306,21 +306,21 @@ class Enemy:
         if self.direction == "right": # change the picture of the enemy according to its direction of movement
             
             if self.tier == 1:
-                self.image = pygame.image.load("SoldierTier2Right.png")
+                self.image = pygame.image.load("assets/images/SoldierTier2Right.png")
                 self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
                 
             elif self.tier == 2:
-                self.image = pygame.image.load("TankRight.png")
+                self.image = pygame.image.load("assets/images/TankRight.png")
                 self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
 
         if self.direction == "up":
             if self.tier == 1:
-                self.image = pygame.image.load("SoldierTier2Back.png")
+                self.image = pygame.image.load("assets/images/SoldierTier2Back.png")
                 self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
                 
         if self.direction == "down":
             if self.tier == 1:
-                self.image = pygame.image.load("SoldierTier2Front.png")
+                self.image = pygame.image.load("assets/images/SoldierTier2Front.png")
                 self.imageSizeX = 50
                 self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY)) 
             
@@ -416,7 +416,7 @@ def gameGuide2():
     
     #set boolean variable for the while loop 
     gameGuide2=True
-    guidePic2=pygame.image.load("GameGuide2.png")
+    guidePic2=pygame.image.load("assets/images/GameGuide2.png")
     
     while gameGuide2:
         mouse=pygame.mouse.get_pos() #get mouse inputs
@@ -439,7 +439,7 @@ def gameGuide2():
 
 #function used to handle game guide pages
 def gameGuide():
-    guidePic=pygame.image.load("GameGuide.png") #load the image for gameguide page
+    guidePic=pygame.image.load("assets/images/GameGuide.png") #load the image for gameguide page
     gameguide=True
     
     while gameguide:
@@ -567,7 +567,7 @@ def menu(attack, health,mobility, gold, scorePoint):
 
 #make a function for labratory
 def labratory(attack, health,mobility,gold,scorePoint):
-    labPic=pygame.image.load("Labratory.png") #load the background image
+    labPic=pygame.image.load("assets/images/Labratory.png") #load the background image
     
     #preset some attributes information as place holders
     Name=None                 
@@ -579,28 +579,28 @@ def labratory(attack, health,mobility,gold,scorePoint):
     scorePointInfo=None
 
     #load the images of weapons
-    HexCan=pygame.image.load("Hextech.png") #load the image of hextech gun
+    HexCan=pygame.image.load("assets/images/Hextech.png") #load the image of hextech gun
     HexCan=pygame.transform.scale(HexCan,(150,100))  #transform the scale of the image to appropriate size
 
-    FireCan=pygame.image.load("FireCannon.png")
+    FireCan=pygame.image.load("assets/images/FireCannon.png")
     FireCan=pygame.transform.scale(FireCan,(150,100))
 
-    InfinityEdge=pygame.image.load("Infinity edge.png")
+    InfinityEdge=pygame.image.load("assets/images/Infinity edge.png")
     InfinityEdge=pygame.transform.scale(InfinityEdge,(150,115))
 
-    DoranBlade=pygame.image.load("Doran's Blade.png")
+    DoranBlade=pygame.image.load("assets/images/Doran's Blade.png")
     DoranBlade=pygame.transform.scale(DoranBlade,(150,100))
 
-    War=pygame.image.load("Warmog.png")
+    War=pygame.image.load("assets/images/Warmog.png")
     War=pygame.transform.scale(War,(150,100))
 
-    Relic=pygame.image.load("Relic Shield.png")
+    Relic=pygame.image.load("assets/images/Relic Shield.png")
     Relic=pygame.transform.scale(Relic,(100,80))
     
-    Mobility=pygame.image.load("Mobility.png")
+    Mobility=pygame.image.load("assets/images/Mobility.png")
     Mobility=pygame.transform.scale(Mobility,(150,100))
 
-    Swift=pygame.image.load("Swift.png")
+    Swift=pygame.image.load("assets/images/Swift.png")
     Swift=pygame.transform.scale(Swift,(120,80))
 
 
@@ -757,20 +757,20 @@ def findAtt(Name):
 def battleIntro(battle, attack,health, mobility):
     
     if battle == "AsiaUnion":
-        Pic = pygame.image.load("AsiaUnion.png")
-        pygame.mixer.music.load("Hell March.mp3")
+        Pic = pygame.image.load("assets/images/AsiaUnion.png")
+        pygame.mixer.music.load("assets/sounds/Hell March.mp3")
         
     elif battle == "SovietUnion":
-        Pic = pygame.image.load("SovietUnion.png")
-        pygame.mixer.music.load("SovietMarch.mp3")
+        Pic = pygame.image.load("assets/images/SovietUnion.png")
+        pygame.mixer.music.load("assets/sounds/SovietMarch.mp3")
         
     elif battle == "MiddleEastUnion":
-        Pic = pygame.image.load("MiddleEastUnion.png")
-        pygame.mixer.music.load("TheMass.mp3")
+        Pic = pygame.image.load("assets/images/MiddleEastUnion.png")
+        pygame.mixer.music.load("assets/sounds/TheMass.mp3")
         
     elif battle == "NorthAmericaUnion":
-        Pic = pygame.image.load("NorthAmericaUnion.png")
-        pygame.mixer.music.load("OCanada.mp3")
+        Pic = pygame.image.load("assets/images/NorthAmericaUnion.png")
+        pygame.mixer.music.load("assets/sounds/OCanada.mp3")
         
 
     pygame.mixer.music.set_volume(5)  #plays the theme song of each battle
@@ -859,7 +859,7 @@ def gamePlay(attack, health, mobility, gold, scorePoint,soldier, tank):
     for numberOfTank in range (tankNum):
         tank +=[Enemy(2)]
 
-    hole=pygame.image.load("hole.gif")
+    hole=pygame.image.load("assets/images/hole.gif")
 
     game=True
     clock = pygame.time.Clock()
@@ -881,7 +881,7 @@ def gamePlay(attack, health, mobility, gold, scorePoint,soldier, tank):
         mapUse = player[0].mapUse
         
         if mapUse == 5: #if the player finishes all the rooms in a battle, the battle terminates
-            Finish = pygame.image.load("BattleComplete.gif")
+            Finish = pygame.image.load("assets/images/BattleComplete.gif")
             finish = True # a while loop to display the finish screen
             
             while finish:
@@ -1051,7 +1051,7 @@ def gamePlay(attack, health, mobility, gold, scorePoint,soldier, tank):
         if play.health <=0 :
             Back = True
             while Back:
-                end = pygame.image.load("EndofBattle.gif")
+                end = pygame.image.load("assets/images/EndofBattle.gif")
                 screen.blit(end, (0,0))
                 pygame.display.update()
                 for event in pygame.event.get():
@@ -1069,8 +1069,8 @@ def gamePlay(attack, health, mobility, gold, scorePoint,soldier, tank):
     return (health, gold, scorePoint)
 
 #find background picture for menu
-menuSea=pygame.image.load("menuSea.png")
-cancel=pygame.image.load("cancel.png") #picture for the cancel button
+menuSea=pygame.image.load("assets/images/menuSea.png")
+cancel=pygame.image.load("assets/images/cancel.png") #picture for the cancel button
 cancelSize=cancel.get_rect()
 full_size = (900, 700) #screen size
 
@@ -1086,7 +1086,7 @@ scorePoint = 0
 screen=pygame.display.set_mode(full_size)
 pygame.display.set_caption("The Conqueror")#set caption
 
-introImg=pygame.image.load('IntroScreen.png')
+introImg=pygame.image.load('assets/images/IntroScreen.png')
 introImg=pygame.transform.scale(introImg,(full_size))
 
 
@@ -1116,7 +1116,7 @@ items={"Doran's Blade":"1,0,0,150,100","Inifinity Edge":"2,0,1,300,150","Hextech
 
 
 #set sounds files
-click = pygame.mixer.Sound(file="click.wav") #used for a sound effect
+click = pygame.mixer.Sound(file="assets/sounds/click.wav") #used for a sound effect
 
 clock = pygame.time.Clock() #set clock
 
@@ -1137,7 +1137,7 @@ while introscreen:
             click.play()
             introscreen=False
             
-seaImg=pygame.image.load('Sea.png')
+seaImg=pygame.image.load('assets/images/Sea.png')
 
 while interface:
     #get the mouse's position
@@ -1221,7 +1221,7 @@ while interface:
                         viewStatus=True
                         click.play()
                         #make the background black image
-                        backG=pygame.image.load("Black.png")
+                        backG=pygame.image.load("assets/images/Black.png")
                         backG=pygame.transform.scale(backG,(full_size))
                         while viewStatus:
                             clock.tick(10)
