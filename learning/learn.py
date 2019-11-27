@@ -36,7 +36,10 @@ set1 = {"a", "b" , "c"}
 set2 = {1, 2, 3}
 set3 = set1.union(set2)
 
+from testFold.test import printing, hey
 
+printing()
+hey()
 
 
 # 4: dictionary 

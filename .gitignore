@@ -1,0 +1,6 @@
+.DS_store
+
+_pycache_/
+components/__pycache__/
+util/__pycache__/
+learning/testFold/__pycache__/
