@@ -19,361 +19,9 @@ import math
 from config import width, height
 from util.utils import *
 from components.player import MainPlayer
-
-        
-#a class to define enemies
-class Enemy:
-    def __init__(self, tier):
-        self.shoot = pygame.mixer.Sound(file="assets/sounds/GunShoot.wav")
-        
-        self.counter = 0
-        self.shootList = []
-        self.direction = None
-        self.tier = tier
-        
-        #a dictionary that contatins coordinates of obstacles in a map
-        self.mapDict = {
-            1: [(300,500,50,300),(300,0,50,300),(500,300,50,600),(700,100,200,50),(700,500,200,50)],
-            2:[(695,100,50,300),(500,300,50,300),(300,100,50,300),(100,250,50,300)],
-            3:[(550,20,80,50),(500,320,50,50),(250,0,50,300),(150,500,50,300),(750,300,50,400), (400,600,50,100),(430,250,200,50),(430,400,200,50),(500,100,200,50)],
-            4:[],
-            5:[]}
-        self.mapUse = 1
-        
-        if self.tier == 1 :   #tier for soldiers
-            self.imageSizeX=50
-            self.imageSizeY=80
-            self.attack =1
-            self.health =3
-            self.mobility =3
-            self.attackspeed = 10
-            self.bulletSpeed = 15
-            self.image = pygame.image.load("assets/images/SoldierTier2Front.png")
-            self.image=pygame.transform.scale(self.image, (self.imageSizeX,self.imageSizeY))
-
-        elif self.tier == 2:
-            self.imageSizeX = 100
-            self.imageSizeY = 120
-            self.attack = 5
-            self.health = 10
-            self.mobility =1
-            self.attackspeed =30
-            self.bulletSpeed = 10
-            self.image = pygame.image.load("assets/images/TankLeft.png")
-            self.image=pygame.transform.scale(self.image, (self.imageSizeX,self.imageSizeY))
-            
-        else:
-            print("tier not defined")
-            
-        touchObstacle = True
-        touch = "no"  #preset if the enemy touch the obstacle to no
-        
-        #generate the enemy and check if the enemy is overlapping with any obstacle
-        while touchObstacle:
-            touch = "no"
-            self.x = random.randrange(12,85)*10
-            self.y = random.randrange(12,60)*10
-            for block in self.mapDict[self.mapUse]:
-                #checks if the enemy collides with an obstacle
-                if checkCollisionRect((self.x,self.y),self.imageSizeX,self.imageSizeY,(block[0],block[1]),block[2],block[3]):
-                    touch = "yes"
-            if touch == "no":
-                touchObstacle = False
-                
-
-        #randomly generate the enemy's position
-        
-    def updateEnemy(self, playerpos):
-        
-        #checks if the enemy should move accodring to the player's postion
-        if playerpos[0] < self.x and playerpos[0] <= self.x- 10:   #enemy move left
-            self.x -=self.mobility
-            self.direction = "left"
-            
-        elif playerpos[0] > self.x and playerpos[0] >= self.x- 10: #enemy move right
-            self.x += self.mobility
-            self.direction = "right"
-            
-        if playerpos[1] >= self.y and playerpos[1] >= self.y- 10: #enemy move down
-            self.y +=self.mobility
-            self.direction = "down"
-
-        elif playerpos[1] <= self.y and playerpos[1] <= self.y- 10: #enemy move up
-            self.y -=self.mobility
-            self.direction = "up"
-
-        if self.direction == "left": # change the picture of the enemy according to its direction of movement
-            
-            if self.tier ==1:
-                self.image = pygame.image.load("assets/images/SoldierTier2Left.png")
-                self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
-
-            elif self.tier == 2:
-                self.image = pygame.image.load("assets/images/TankLeft.png")
-                self.imageSizeX = 100
-                self.imageSizeY= 120
-                self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
-
-        if self.direction == "right": # change the picture of the enemy according to its direction of movement
-            
-            if self.tier == 1:
-                self.image = pygame.image.load("assets/images/SoldierTier2Right.png")
-                self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
-                
-            elif self.tier == 2:
-                self.image = pygame.image.load("assets/images/TankRight.png")
-                self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
-
-        if self.direction == "up":
-            if self.tier == 1:
-                self.image = pygame.image.load("assets/images/SoldierTier2Back.png")
-                self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY))
-                
-        if self.direction == "down":
-            if self.tier == 1:
-                self.image = pygame.image.load("assets/images/SoldierTier2Front.png")
-                self.imageSizeX = 50
-                self.image = pygame.transform.scale(self.image, (self.imageSizeX , self.imageSizeY)) 
-            
-
-
-
-        
-        #check if the sprite is overlapping with any obstacle
-        for block in self.mapDict[self.mapUse]:
-            #checks if the enemy collides with an obstacle
-            if checkCollisionRect((self.x,self.y),self.imageSizeX,self.imageSizeY,(block[0],block[1]),block[2],block[3]):
-                
-                if self.x <= block[0] and self.y <= block[1]+block[3] and self.y+self.imageSizeY >= block[1]:
-                #checks if the obstacle is to the right of the enemy 
-                    self.x -= 2*self.mobility
-                    
-                #check if the obstacle is to the left of the enemy    
-                if self.x <= block[0]+block[2] and self.y <block[1]+block[3] and self.y+self.imageSizeY > block[1]: 
-                    self.x += self.mobility
-                    
-                if self.x+self.imageSizeX >= block[0] and self.x <= block[0]+block[2] and self.y+self.imageSizeY >=block[1]:
-                    self.y += self.mobility
-                    
-                if self.x+self.imageSizeX >= block[0] and self.x <= block[0]+block[2] and self.y < block[1]+block[3]:
-                    self.y -= 2*self.mobility 
-                    
-        #code the enemy to shoot bullets at the player
-        if self.counter > self.attackspeed:
-            
-            if playerpos[1] <= self.y+10 and playerpos[1] > self.y-10:
-                if playerpos[0]< self.x:
-                    self.direction = "left"
-                    if self.tier == 1:
-                        self.shootList += [(self.x+self.imageSizeX/2, self.y+self.imageSizeY/2, self.direction, self.attack)]
-                        
-                    elif self.tier == 2:
-                        self.shootList += [(self.x+self.imageSizeX/2, self.y+20, self.direction, self.attack)]
-                    self.shoot.play()
-                    
-                elif playerpos[0] > self.x:
-                    self.direction = "right"
-
-                    if self.tier == 1:
-                        self.shootList += [(self.x+self.imageSizeX/2, self.y+self.imageSizeY/2, self.direction, self.attack)]
-
-                    elif self.tier == 2:
-                        self.shootList += [(self.x+self.imageSizeX/2, self.y+20, self.direction, self.attack)]                    
-                    self.shoot.play()
-                    
-            elif playerpos[0] <= self.x +10 and playerpos[0] >=self.x-10:
-                if playerpos[1] < self.y:
-                    self.direction = "up"
-                    self.shootList += [(self.x+self.imageSizeX/2, self.y+self.imageSizeY/2, self.direction, self.attack)]
-                    self.shoot.play()
-                    
-                elif playerpos[1] >self.y:
-                    self.direction = "down"
-                    self.shootList += [(self.x+self.imageSizeX/2, self.y+self.imageSizeY/2, self.direction, self.attack)]
-                    self.shoot.play()
-                    
-            self.counter = 0  #reset the attackspeed timer
-                    
-        for bullet in self.shootList:  #proccess the bullet to make it shoot
-            if bullet[2] == "left": #shoot at left direction
-                self.shootList[self.shootList.index(bullet)] = ((bullet[0]-self.bulletSpeed),bullet[1],bullet[2],self.attack)
-                
-            
-            elif bullet [2] == "right": #shoot in right direction
-                self.shootList[self.shootList.index(bullet)] = ((bullet[0]+self.bulletSpeed),bullet[1],bullet[2],self.attack)
-                
-            elif bullet[2] == "up": #shoot in up direction
-                self.shootList[self.shootList.index(bullet)] = (bullet[0],bullet[1]-self.bulletSpeed,bullet[2],self.attack)
-                
-            elif bullet[2] == "down": #shoot down
-                self.shootList[self.shootList.index(bullet)] = (bullet[0],bullet[1]+self.bulletSpeed,bullet[2], self.attack)
-                
-            
-        #time when the enemy can shoot bullets
-        self.counter +=1 
-              
-        #delete the bullet when a bullet passes through a wall
-        for bullet in self.shootList:
-            
-            for block in self.mapDict[self.mapUse]:
-                #checks if the player collides with an obstacle
-                if checkCollisionRect((bullet[0],bullet[1]),10,10,(block[0],block[1]),block[2],block[3]):
-                    bulletPointer = self.shootList.index(bullet)
-                    del (self.shootList[bulletPointer])
-
-
-#A function for creating the second page of game guide
-def gameGuide2():
-    
-    #set boolean variable for the while loop 
-    gameGuide2=True
-    guidePic2=pygame.image.load("assets/images/GameGuide2.png")
-    
-    while gameGuide2:
-        mouse=pygame.mouse.get_pos() #get mouse inputs
-        screen.blit(guidePic2,(0,0)) #blit the neccessary pictures
-        screen.blit(cancel,(850,0))
-        pygame.display.update()
-        
-        for event in pygame.event.get():
-            
-            if event.type== QUIT: #handles the cancel button
-                menu=False
-                inteface= False
-                pygame.display.quit()
-                
-            elif event.type==MOUSEBUTTONDOWN:
-                if pygame.mouse.get_pressed() == (1,0,0):
-                    if mouse[0]>850 and mouse[1]<50 and mouse[1]>0: #handle the in game cancel button
-                        click.play()
-                        gameGuide2=False
-
-#function used to handle game guide pages
-def gameGuide():
-    guidePic=pygame.image.load("assets/images/GameGuide.png") #load the image for gameguide page
-    gameguide=True
-    
-    while gameguide:
-        
-        mouse=pygame.mouse.get_pos() #get mouse's position
-        screen.blit(guidePic,(0,0)) #bilt the picture of game guide
-        screen.blit(cancel,(850,0)) #bilt the cancel button
-        pygame.display.update() #refresh the screen
-        
-        for event in pygame.event.get():  #handle events
-            
-            if event.type== QUIT:
-                menu=False
-                inteface= False
-                
-                
-            elif event.type==MOUSEBUTTONDOWN:
-                #handle buttons on the screen
-                if pygame.mouse.get_pressed() == (1,0,0):  #handle when the cancel button is clicked
-                    if mouse[0]>850 and mouse[1]<50 and mouse[1]>0:
-                        click.play()
-                        gameguide=False
-                    if mouse[0]>725 and mouse[1]>50 and mouse[1]<89: #handle when next page button is clicked
-                        click.play()
-                        gameGuide2()
-
-
-#creating the menu function
-def menu(attack, health,mobility, gold, scorePoint):
-    interface = True
-    menu=True
-    while menu:
-        #get the mouse's position
-        mouse =pygame.mouse.get_pos()
-        
-        #blit pictures on screen
-        screen.blit(menuSea,(0,0))
-        
-        pygame.draw.rect(screen,lightYellow,(250,200,400,445)) #draw pictures that are neccessary for the menu
-        pygame.draw.rect(screen,(0,0,255),(260,210,380,140))
-        pygame.draw.rect(screen,green,(260,350,380,140))
-        pygame.draw.rect(screen,brightYellow,(260,490,380,70))
-        pygame.draw.rect(screen,red,(260,560,380,70))
-        
-        textScreen("The Conqueror",white,0,0,100) #write texts that are neccessary for the menu
-        textScreen("New Game",white,270,230,75)
-        textScreen("Load Previous",black,290,360,50)
-        textScreen("Game",black,320,420,50)
-        textScreen("Save Game", black,280,495,60)
-        textScreen("Quit", brightYellow,300,555,60)
-        screen.blit(cancel,(600,200))
-        
-        
-        for event in pygame.event.get():
-            #handles what will happen when the cancel button is clicked
-            if event.type== QUIT:
-                menu=False
-                inteface= False
-                pygame.display.quit()
-                
-            elif event.type==MOUSEBUTTONDOWN:
-                if pygame.mouse.get_pressed() == (1,0,0):
-                    if mouse[0]>600 and mouse[0]<650 and mouse[1]>200 and mouse[1]<250:
-                        click.play()
-                        menu=False
-                    #to detect if a button is cliked, Check the coordinates of X firt
-                    elif mouse[0]>260 and mouse[0]<640:
-                        #check for Y
-                        if mouse[1]>210 and mouse[1]<350:
-                            click.play()
-                            #since the function of this button is to create a new game, we will rewrite the csv file
-                            OverwriteF=open("UserData.csv","w+")
-                            OverwriteF.close()
-                            
-                        elif mouse[1]>350 and mouse[1]<490:
-                            click.play()
-                            #open the file that contains the route in read mode
-                            #open the file that contains the route in read mode
-                            ReadF=open("UserData.csv","r+")
-                            #format of file: Attack, Health,mobility, gold, score points, True,True,True,True
-                            
-                            #create a dictionary to store data
-                            data=[]
-
-                            #store information in a dictionary
-                            for line in ReadF:
-                                #Check if there are actully previous game history
-                                if line[0] != None:
-                                    #seperate the line using commas
-                                    splitLine=line.split(",")
-                                    # delete the /n character
-                                    del splitLine[len(splitLine)-1]
-                                    #store the data
-                                    attack = int(splitLine[0])
-                                    health = int(splitLine[1])
-                                    mobility = int(splitLine[2])
-                                    gold = int(splitLine[3])
-                                    scorePoint = int(splitLine[4])
-                                    textScreen("Data retrived Successfully", black, 300,500,40)
-                                else:
-                                    textScreen("No data found", black, 300,500,40)
-                            
-                            #Close the file after it's loaded in the dictionary
-                            ReadF.close()
-                        elif mouse[1]>490 and mouse[1]<560:
-                            click.play()
-                            writeF=open("UserData.csv", "w+")
-                            #make a list of attributes to store
-                            attList=[attack,health,mobility,gold,scorePoint]
-                            for att in attList:
-                                attStr=str(att)
-                                writeF.write(attStr)
-                                writeF.write(",")
-                            #place a None in the end as place holder
-                            writeF.write("None")
-                            writeF.close()
-                        elif mouse[1]>560 and mouse[1]<630:
-                            click.play()
-                            menu=False
-                            interface=False
-                        
-        pygame.display.update()
-    return(attack, health,mobility,gold,scorePoint, interface)
+from components.enemy import Enemy
+from screens.gameGuide import gameGuide, gameGuide2
+from screens.menu import menu
 
 #make a function for labratory
 def labratory(attack, health,mobility,gold,scorePoint):
@@ -551,18 +199,7 @@ def labratory(attack, health,mobility,gold,scorePoint):
                                 
     return(attack, health,mobility,gold,scorePoint)
                             
-                            
-#A function to make item attributes store in variables, pass the name of the item in
-def findAtt(Name):
-    #find what is the values of the name, name being the item's name
-    attributes=items[Name]
-    attributesSplit=attributes.split(",")
-    attackInfo=attributesSplit[0]
-    healthInfo=attributesSplit[1]
-    mobilityInfo=attributesSplit[2]
-    goldInfo=attributesSplit[3]
-    scorePointInfo=attributesSplit[4]
-    return(attackInfo,healthInfo,mobilityInfo,goldInfo,scorePointInfo)
+                        
                 
 def battleIntro(battle, attack,health, mobility):
     
@@ -672,7 +309,6 @@ def gamePlay(attack, health, mobility, gold, scorePoint,soldier, tank):
     hole=pygame.image.load("assets/images/hole.gif")
 
     game=True
-    clock = pygame.time.Clock()
     strGold = str(gold)
     strScorePoint = str(scorePoint)
 
@@ -879,7 +515,6 @@ def gamePlay(attack, health, mobility, gold, scorePoint,soldier, tank):
     return (health, gold, scorePoint)
 
 #find background picture for menu
-menuSea=pygame.image.load("assets/images/menuSea.png")
 cancel=pygame.image.load("assets/images/cancel.png") #picture for the cancel button
 cancelSize=cancel.get_rect()
 full_size = (900, 700) #screen size
@@ -905,14 +540,6 @@ introscreen=True
 interface=True
 
 
-#Colours:
-red=(230,0,0)
-black=(0,0,0)
-white=(255,255,255)
-green=(0,255,0)
-lightYellow=(200,250,204)
-orange=(255,165,0)
-brightYellow=(244,219,3)
 #create variables to represent status in the game
 health=20
 attack=1
@@ -920,18 +547,11 @@ mobility=10
 gold=0
 scorePoint=0
 
-#A dictionary that is used to store the list of items in labratory
-#"attack,health,mobility,Gold cosy,Score point"
-items={"Doran's Blade":"1,0,0,150,100","Inifinity Edge":"2,0,1,300,150","Hextech Gun":"3,0,2,400,200","Fire cannon":"4,0,2,600,400","Relic shield":"0,10,0,300,150","Warmog's armor":"0,30,0,600,300","Boot of mobility":"0,0,3,200,100","Boot of swiftness":"0,0,4,400,200"}
-
-
 #set sounds files
 click = pygame.mixer.Sound(file="assets/sounds/click.wav") #used for a sound effect
 
 clock = pygame.time.Clock() #set clock
-
-
-                            
+          
 #blit intro screen
 while introscreen:
     screen.blit(introImg, (0,0)) #intro image

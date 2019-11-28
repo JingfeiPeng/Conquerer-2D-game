@@ -7,6 +7,7 @@ import sys
 sys.path.append('../')
 
 from util.utils import *
+from util.map import mapObstacles
 
 
 class MainPlayer:
@@ -23,12 +24,7 @@ class MainPlayer:
         self.counter = 0
         
         #a dictionary is used to store the coordinates of obstacles in a map
-        self.mapDict = {
-            1: [(300,500,50,300),(300,0,50,300),(500,300,50,600),(700,100,200,50),(700,500,200,50)],
-            2:[(695,100,50,300),(500,300,50,300),(300,100,50,300),(100,250,50,300)],
-            3:[(550,20,80,50),(500,320,50,50),(250,0,50,300),(150,500,50,300),(750,300,50,400), (400,600,50,100),(430,250,200,50),(430,400,200,50),(500,100,200,50)],
-            4:[],
-            5:[]}
+        self.mapDict = mapObstacles
 
         self.mapUse = 1
         
