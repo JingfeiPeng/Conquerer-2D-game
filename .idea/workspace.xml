@@ -2,6 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51e86e9f-d38d-4154-b50b-9f524532c8e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/AlienStand.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/AlienStand.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/AlienStand2.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/AlienStand2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/AlienStand3.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/AlienStand3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/AlienStand4.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/AlienStand4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/AsiaUnion.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/AsiaUnion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Black.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Black.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/CharacterBack.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/CharacterBack.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/CharacterLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/CharacterLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/CharacterRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/CharacterRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Doran's Blade.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Doran's Blade.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Edge.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Edge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/FireCannon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/FireCannon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/GameGuide.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/GameGuide.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/GameGuide2.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/GameGuide2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/GermanMarch.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/GermanMarch.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/HelicopterLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/HelicopterLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/HelicopterRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/HelicopterRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/HexatechCannon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/HexatechCannon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Hextech.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Hextech.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Infinity edge.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Infinity edge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/IntroScreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/IntroScreen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Labratory.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Labratory.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/MiddleEastUnion.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/MiddleEastUnion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Mobility.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Mobility.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/NorthAmericaUnion.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/NorthAmericaUnion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Relic Shield.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Relic Shield.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Sea.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Sea.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SoldierTier11.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SoldierTier11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SoldierTier12.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SoldierTier12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SoldierTier2Back.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SoldierTier2Back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SoldierTier2Front.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SoldierTier2Front.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SoldierTier2Left.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SoldierTier2Left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SoldierTier2Right.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SoldierTier2Right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/SovietUnion.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/SovietUnion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Swift.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Swift.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Sword1 copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Sword1 copy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Sword1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Sword1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/TankLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/TankLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/TankRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/TankRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Warmog.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/Warmog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/cancel.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/cancel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/menuSea.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/menuSea.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/soldierTier21.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/soldierTier21.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,7 +59,8 @@
   </component>
   <component name="ProjectId" id="1UEMENLqiqX4ziEe3wXaZR0tt7F" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AngryBirds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -28,6 +73,34 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Conquerer-2D-game" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -47,7 +120,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
