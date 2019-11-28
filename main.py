@@ -226,6 +226,3 @@ while interface:
 
 pygame.display.quit()
 
-
-#program cancel picture to cancel
-#program diffculty levels
